@@ -6,7 +6,7 @@ from game_manager import LetterStates
 class StatisticalSearchTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.wordbank_manager = WordbankManager('mock_word_bank.txt')
+        cls.wordbank_manager = WordbankManager('wordbanks/mock_word_bank.txt')
 
     def test_get_letter_frequency(self):
         word_set = ['abc', 'abd', 'aee']

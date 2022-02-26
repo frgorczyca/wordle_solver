@@ -4,7 +4,7 @@ from taboo_search import worlde_taboo_search
 from wordbank_manager import WordbankManager
 from game_manager import GameManager
 
-wordbank_manager = WordbankManager('eng_five_letter_words.txt')
+wordbank_manager = WordbankManager('wordbanks/eng_five_letter_words.txt')
 game_manager = GameManager()
 
 game_manager.set_password(wordbank_manager.get_random_word())

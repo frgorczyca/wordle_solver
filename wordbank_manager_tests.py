@@ -4,7 +4,7 @@ from wordbank_manager import WordbankManager
 class WordbankManagerTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.wordbank_manager = WordbankManager('mock_word_bank.txt')
+        cls.wordbank_manager = WordbankManager('wordbanks/mock_word_bank.txt')
 
     def test_does_word_exists(self):
         self.assertTrue(self.wordbank_manager.does_word_exist('topaz'))
