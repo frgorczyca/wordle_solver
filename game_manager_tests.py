@@ -1,4 +1,3 @@
-from typing import List
 import unittest
 from game_manager import GameManager, LetterStates
 

@@ -31,7 +31,7 @@ class WordbankManager():
 
         return allowed
 
-    def get_words_with_letters(self, required_letters):
+    def get_words_with_all_letters(self, required_letters):
         """Returns all words containing all provided letters"""
         if not required_letters:
             return []
@@ -41,6 +41,17 @@ class WordbankManager():
             allowed = list(filter(lambda word: letter in word, allowed))
 
         return allowed
+
+    def get_words_with_letters(self, required_letters):
+        """Returns all words containing at least one of provided letters"""
+        if not required_letters:
+            return []
+
+        allowed = []
+        for letter in required_letters:
+            allowed = allowed + list(filter(lambda word: letter in word, self.wordbank))
+
+        return list(dict.fromkeys(allowed))
 
     def get_words_with_letters_on_index(self, indexed_letters):
         """Given tuple with letter and index returns all words with exact indexes"""
@@ -52,3 +63,5 @@ class WordbankManager():
             allowed = list(filter(lambda word: word[index] == letter, allowed))
 
         return allowed
+
+    

@@ -1,14 +1,7 @@
 from random import choice
-from game_manager import GameManager, LetterStates
+from game_manager import GameManager
 from wordbank_manager import WordbankManager
-
-def update_taboo_list(result_list, taboo_list):
-    """Add letters that do not exist in solution to taboo list"""
-    for result in result_list:
-        if result[1] == LetterStates.WRONG and result[0] not in taboo_list:
-            taboo_list.append(result[0])
-
-    return taboo_list
+from result_list_helpers import update_taboo_list
 
 def worlde_taboo_search(game_manager,wordbank_manager, solution):
     taboo_list = []

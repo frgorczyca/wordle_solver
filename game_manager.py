@@ -12,8 +12,7 @@ class GameManager():
     Class managing single instance of Worlde game.
 
     Attributes:
-        five_letter_words: contains all five letter words as a wordbank for the game. 
-        password: Current correct anwser to game instance. Can be generated via generate_password() method.
+        __password: Current correct anwser to game instance. Can be generated via generate_password() method.
     """
     def __init__(self):
         self.__password = ''
