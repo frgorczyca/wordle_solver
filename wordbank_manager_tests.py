@@ -19,6 +19,7 @@ class WordbankManagerTest(unittest.TestCase):
     def test_get_words_with_all_letters(self):
         self.assertEqual(self.wordbank_manager.get_words_with_all_letters(['l','o']), ['flota', 'omlet'])
         self.assertEqual(self.wordbank_manager.get_words_with_all_letters('a'), ['pazur','flota', 'wydra', 'topaz', 'saper'])
+        self.assertEqual(self.wordbank_manager.get_words_with_all_letters('ar'), ['pazur', 'wydra', 'saper'])
         self.assertFalse('xxxxx' in self.wordbank_manager.get_words_with_all_letters('b'))
         self.assertEqual(self.wordbank_manager.get_words_with_all_letters([]), [])
 

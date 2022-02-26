@@ -8,9 +8,8 @@ class WordbankManager():
         wordbank: Contains all letters valid as answers for the game. 
     """
     def __init__(self, wordbank):
-        words_file = open(wordbank, 'r')
-        self.wordbank = words_file.read().splitlines()
-        words_file.close()
+        with open(wordbank, 'r') as words_file:
+            self.wordbank = words_file.read().splitlines()
 
     def get_random_word(self):
         """Get a random word from the wordbank"""
