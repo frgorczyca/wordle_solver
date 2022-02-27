@@ -37,7 +37,7 @@ class WordbankManager():
 
         allowed = self.wordbank
         for letter in required_letters:
-            allowed = list(filter(lambda word: letter in word, allowed))
+            allowed = list(filter(lambda word: letter in word and word.count(letter) >= required_letters.count(letter), allowed))
 
         return allowed
 

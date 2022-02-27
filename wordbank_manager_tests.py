@@ -11,7 +11,7 @@ class WordbankManagerTest(unittest.TestCase):
         self.assertFalse(self.wordbank_manager.does_word_exist('aaaaa'))
     
     def test_get_words_without_letters(self):
-        self.assertEqual(self.wordbank_manager.get_words_without_letters(['a','z','b']), ['omlet', 'xxxxx'])
+        self.assertEqual(self.wordbank_manager.get_words_without_letters(['a','z','b']), ['omlet', 'xxxxx','mimic'])
         self.assertEqual(self.wordbank_manager.get_words_without_letters('pwxbm'), ['flota'])
         self.assertFalse('pazur' in self.wordbank_manager.get_words_without_letters('a'))
         self.assertEqual(self.wordbank_manager.get_words_without_letters([]), [])
@@ -20,7 +20,9 @@ class WordbankManagerTest(unittest.TestCase):
         self.assertEqual(self.wordbank_manager.get_words_with_all_letters(['l','o']), ['flota', 'omlet'])
         self.assertEqual(self.wordbank_manager.get_words_with_all_letters('a'), ['pazur','flota', 'wydra', 'topaz', 'saper'])
         self.assertEqual(self.wordbank_manager.get_words_with_all_letters('ar'), ['pazur', 'wydra', 'saper'])
+        self.assertEqual(self.wordbank_manager.get_words_with_all_letters('ii'), ['mimic'])
         self.assertFalse('xxxxx' in self.wordbank_manager.get_words_with_all_letters('b'))
+        self.assertFalse('topaz' in self.wordbank_manager.get_words_with_all_letters('oo'))
         self.assertEqual(self.wordbank_manager.get_words_with_all_letters([]), [])
 
     def test_get_words_with_letters_on_index(self):
