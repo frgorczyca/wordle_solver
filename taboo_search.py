@@ -1,9 +1,7 @@
 from random import choice
-from game_manager import GameManager
-from wordbank_manager import WordbankManager
 from result_list_helpers import update_taboo_list
 
-def worlde_taboo_search(game_manager,wordbank_manager, solution):
+def worlde_taboo_search(game_manager, wordbank_manager, solution):
     """Get solution to worlde problem and number of iterations"""
     taboo_list = []
     iterations = 0
@@ -15,7 +13,6 @@ def worlde_taboo_search(game_manager,wordbank_manager, solution):
         iterations+=1
         result_list = game_manager.verify_solution(solution)
         taboo_list = update_taboo_list(result_list, taboo_list)
-
         solution = choice(wordbank_manager.get_words_without_letters(taboo_list))
     
     return (solution, iterations)

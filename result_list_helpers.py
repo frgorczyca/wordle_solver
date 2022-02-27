@@ -3,7 +3,7 @@ from game_manager import LetterStates
 def update_taboo_list(result_list, taboo_list):
     """Add letters that do not exist in solution to taboo list"""
     for result in result_list:
-        if result[1] == LetterStates.WRONG and result[0] not in taboo_list:
+        if result[1] == LetterStates.WRONG and (result[0], LetterStates.MISPLACED) not in result_list and (result[0], LetterStates.PROPER) not in result_list and result[0] not in taboo_list:
             taboo_list.append(result[0])
 
     return taboo_list
