@@ -19,7 +19,7 @@ def get_letter_frequency(word_set):
 
 def get_missing_letters_number(result_list):
     """Get number of letters that are neither correct nor misplaced"""
-    if not result_list:
+    if not result_list: 
         raise ValueError('result_list cannot be empty')
 
     missing_letters_amount = 0
@@ -79,7 +79,6 @@ def worlde_statistical_search(game_manager, wordbank_manager, solution):
         misplaced_words = wordbank_manager.get_words_with_all_letters(misplaced_list)
 
         matching_words = [word for word in allowed_words if (word in correct_words or not correct_words) and (word in misplaced_words or not misplaced_words)]
-
         solution =  get_statistical_solution(get_letter_frequency(matching_words), get_missing_letters_number(result_list), matching_words)
     
     return (solution, iterations)

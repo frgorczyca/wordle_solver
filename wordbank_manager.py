@@ -20,9 +20,9 @@ class WordbankManager():
         return word in self.wordbank
 
     def get_words_without_letters(self, forbidden_letters):
-        """Returns all words without provided letters"""
+        """Returns all words without provided letters"""   
         if not forbidden_letters:
-            return []
+            return self.wordbank
 
         allowed = self.wordbank
         for letter in forbidden_letters:
