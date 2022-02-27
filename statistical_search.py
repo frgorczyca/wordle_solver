@@ -35,6 +35,10 @@ def get_statistical_solution(letters_frequency, missing_letters_amount, allowed_
     if missing_letters_amount == 0:
         return choice(allowed_words)
     
+    # In very rare cases there are fewer letters to choose from than missing slots (words with multiple duplicated letters)
+    if (len(letters_frequency) < missing_letters_amount):
+        missing_letters_amount = len(letters_frequency)
+
     words = allowed_words
     for combination in combinations(letters_frequency, missing_letters_amount):
         for letter in combination:
