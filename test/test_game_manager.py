@@ -1,5 +1,5 @@
 import unittest
-from game_manager import GameManager, LetterStates
+from solvers.game_manager import GameManager, LetterStates
 
 class GameManagerTest(unittest.TestCase):
     @classmethod

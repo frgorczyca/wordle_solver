@@ -1,8 +1,7 @@
 from random import choice
 from itertools import combinations
-from game_manager import LetterStates
-
-from result_list_helpers import update_taboo_list, update_correct_list, update_misplaced_list
+from solvers.game_manager import LetterStates
+from solvers.result_list_helpers import update_taboo_list, update_correct_list, update_misplaced_list
 
 def get_letter_frequency(word_set):
     """Get most frequent letters in set of words"""
@@ -76,7 +75,7 @@ def worlde_statistical_search(game_manager, wordbank_manager, solution):
         correct_words = wordbank_manager.get_words_with_letters_on_index(correct_list)
 
         misplaced_list = update_misplaced_list(result_list, misplaced_list)
-        misplaced_words = wordbank_manager.get_words_with_all_letters(misplaced_list)
+        misplaced_words = wordbank_manager.get_words_with_letter_not_on_index(misplaced_list)
 
         matching_words = [word for word in allowed_words if (word in correct_words or not correct_words) and (word in misplaced_words or not misplaced_words)]
         solution =  get_statistical_solution(get_letter_frequency(matching_words), get_missing_letters_number(result_list), matching_words)

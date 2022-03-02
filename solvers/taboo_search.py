@@ -1,5 +1,5 @@
 from random import choice
-from result_list_helpers import update_taboo_list
+from solvers.result_list_helpers import update_taboo_list
 
 def worlde_taboo_search(game_manager, wordbank_manager, solution):
     """Get solution to worlde problem and number of iterations"""

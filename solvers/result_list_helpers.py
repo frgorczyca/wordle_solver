@@ -1,4 +1,4 @@
-from game_manager import LetterStates
+from solvers.game_manager import LetterStates
 
 def update_taboo_list(result_list, taboo_list):
     """Add letters that do not exist in solution to taboo list"""
@@ -18,8 +18,8 @@ def update_correct_list(result_list, correct_list):
 
 def update_misplaced_list(result_list, misplaced_list):
     """Add letters that exists in solution on a different index to misplaced list"""
-    for result in result_list:
-        if result[1] == LetterStates.MISPLACED and result[0] not in misplaced_list:
-            misplaced_list.append(result[0])
+    for (index, result) in enumerate(result_list):
+        if result[1] == LetterStates.MISPLACED and (index, result[0]) not in misplaced_list:
+            misplaced_list.append((index, result[0]))
 
     return misplaced_list

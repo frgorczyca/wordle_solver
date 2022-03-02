@@ -1,12 +1,14 @@
-from statistical_search import get_letter_frequency, get_missing_letters_number, get_statistical_solution
-from wordbank_manager import WordbankManager
-import unittest
-from game_manager import LetterStates
+import unittest, os
+from solvers.game_manager import LetterStates
+from solvers.statistical_search import get_letter_frequency, get_missing_letters_number, get_statistical_solution
+from solvers.wordbank_manager import WordbankManager
 
 class StatisticalSearchTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.wordbank_manager = WordbankManager('wordbanks/mock_word_bank.txt')
+        test_dir = os.path.dirname(__file__)
+        rel_path = 'mock_word_bank.txt'
+        cls.wordbank_manager = WordbankManager(os.path.join(test_dir, rel_path))
 
     def test_get_letter_frequency(self):
         word_set = ['abc', 'abd', 'aee']

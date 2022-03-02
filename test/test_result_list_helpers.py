@@ -1,6 +1,6 @@
-from result_list_helpers import update_taboo_list, update_correct_list, update_misplaced_list
-from game_manager import LetterStates
 import unittest
+from solvers.game_manager import LetterStates
+from solvers.result_list_helpers import update_taboo_list, update_correct_list, update_misplaced_list
 
 class GameManagerTest(unittest.TestCase):
     def test_update_taboo_list(self):
@@ -34,7 +34,7 @@ class GameManagerTest(unittest.TestCase):
         misplaced_list = []
 
         misplaced_list = update_misplaced_list(result, misplaced_list)
-        self.assertEqual(misplaced_list, ['h','o'])
+        self.assertEqual(misplaced_list, [(1,'h'),(2,'o')])
 
     def test_update_correct_list(self):
         result = [('p', LetterStates.PROPER),
